@@ -3,11 +3,11 @@ import cv2
 import sys
 from PIL import Image
 
-path = "/home/sanjay/Pictures/dataset/manhole_step2/img"
-new_path = "/home/sanjay/Pictures/dataset/manhole_step2/img_new"
+path = "/home/sanjay/DATA/ChromeDownload/WeaponS/test"
+new_path = "/home/sanjay/DATA/ChromeDownload/WeaponS/test_new"
 i = 1
 for filename in os.listdir(path):
-    if os.path.splitext(filename)[1] == ".JPEG":
+    if os.path.splitext(filename)[1] == ".JPEG" or os.path.splitext(filename)[1] == ".png" or os.path.splitext(filename)[1] == ".jpg" or os.path.splitext(filename)[1] == ".jpeg":
         img = Image.open(os.path.join(path, filename))
         # print(filename.replace(".jpeg", ".jpg"))
         # newfilename = "0000" + str(i) + ".jpg"

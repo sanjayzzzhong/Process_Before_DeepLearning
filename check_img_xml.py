@@ -1,7 +1,7 @@
 import os
 
-img_path = "/home/sanjay/Pictures/d/img"
-xml_path = "/home/sanjay/Pictures/d/xml"
+img_path = "//home/sanjay/DATA/ChromeDownload/WeaponS/img/"
+xml_path = "/home/sanjay/DATA/ChromeDownload/WeaponS//xml/"
 
 for xml_file in os.listdir(xml_path):
     xml_name = os.path.splitext(xml_file)[0]
@@ -13,4 +13,6 @@ for xml_file in os.listdir(xml_path):
             break
     if flag == False:
         print(xml_name)
+        os.remove(os.path.join(xml_path, xml_file))
+        print("Deleted " + xml_file)
     flag = False
