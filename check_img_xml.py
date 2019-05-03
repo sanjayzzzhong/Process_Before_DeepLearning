@@ -1,7 +1,7 @@
 import os
 
-img_path = "//home/sanjay/DATA/ChromeDownload/WeaponS/img/"
-xml_path = "/home/sanjay/DATA/ChromeDownload/WeaponS//xml/"
+img_path = "/home/sanjay/DATA/Dataset/meter_with_label/mechanical_meter/xml/"
+xml_path = "/home/sanjay/DATA/Dataset/meter_with_label/mechanical_meter/new_img/"
 
 for xml_file in os.listdir(xml_path):
     xml_name = os.path.splitext(xml_file)[0]

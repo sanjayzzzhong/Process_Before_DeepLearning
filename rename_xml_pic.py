@@ -5,9 +5,9 @@ import glob
 import xml.etree.ElementTree as ET
 import xml.dom.minidom
  
-i = 0
-xmldir = "/home/sanjay/DATA/ChromeDownload/pistol/xml"
-imgsdir = "/home/sanjay/DATA/ChromeDownload/pistol/train"
+i = 4979
+xmldir = "/home/sanjay/DATA/Dataset/meter_with_label/mechanical_meter/15.xml/"
+imgsdir = "/home/sanjay/DATA/Dataset/meter_with_label/mechanical_meter/15/"
 #outdir = "/home/sanjay/Pictures/manhole_1/new"
 for xmlfile in os.listdir(xmldir):
     xmlname = os.path.splitext(xmlfile)[0]

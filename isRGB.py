@@ -1,6 +1,6 @@
 from PIL import Image     
 import os       
-path = '/home/sanjay/DATA/ChromeDownload/WeaponS/img/' #图片目录 
+path = '/home/sanjay/DATA/Dataset/meter_with_label/mechanical_meter/new_img/' #图片目录 
 for file in os.listdir(path):      
      extension = file.split('.')[-1]
      if extension == 'jpg' or extension == 'png':
