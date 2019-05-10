@@ -1,7 +1,7 @@
 import os
 
-img_path = "/home/sanjay/DATA/Dataset/meter_with_label/mechanical_meter/xml/"
-xml_path = "/home/sanjay/DATA/Dataset/meter_with_label/mechanical_meter/new_img/"
+img_path = "/home/sanjay/Documents/Tencent Files/1009610720/FileRecv/muck/img/"
+xml_path = "/home/sanjay/Documents/Tencent Files/1009610720/FileRecv/muck/xml/"
 
 for xml_file in os.listdir(xml_path):
     xml_name = os.path.splitext(xml_file)[0]
@@ -16,3 +16,4 @@ for xml_file in os.listdir(xml_path):
         os.remove(os.path.join(xml_path, xml_file))
         print("Deleted " + xml_file)
     flag = False
+    

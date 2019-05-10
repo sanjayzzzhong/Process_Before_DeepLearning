@@ -3,11 +3,11 @@ import cv2
 import sys
 from PIL import Image
 
-path = "/home/sanjay/DATA/Dataset/meter_with_label/mechanical_meter/img/"
-new_path = "/home/sanjay/DATA/Dataset/meter_with_label/mechanical_meter/new_img/"
+path = "/home/sanjay/Documents/Tencent Files/1009610720/FileRecv/muck/img/"
+new_path = "/home/sanjay/Documents/Tencent Files/1009610720/FileRecv/muck/new_img/"
 i = 1
 for filename in os.listdir(path):
-    if os.path.splitext(filename)[1] == ".jpg":
+    if os.path.splitext(filename)[1] == ".jpg" or os.path.splitext(filename)[1] == ".png":
         try:
             img = Image.open(os.path.join(path, filename))
             # print(filename.replace(".jpeg", ".jpg"))

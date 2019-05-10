@@ -20,10 +20,10 @@ def moveFile(img_dir, xml_dir, test_dir):
         return
 
 if __name__ == '__main__':
-	img_dir = "/root/manhole/models/research/object_detection/images/elec_img/"    #源图片文件夹路径
+    img_dir = "/root/manhole/models/research/object_detection/images/elec_img/"    #源图片文件夹路径
     xml_dir = "/root/manhole/models/research/object_detection/images/elec_xml/"
-	test_dir = '/root/manhole/models/research/object_detection/images/meter_test/'    #移动到新的文件夹路径
-	moveFile(xmg_dir, xml_dir, test_dir)
+    test_dir = '/root/manhole/models/research/object_detection/images/meter_test/'    #移动到新的文件夹路径
+    moveFile(img_dir, xml_dir, test_dir)
 
 
 
