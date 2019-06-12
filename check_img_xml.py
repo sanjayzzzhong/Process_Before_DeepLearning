@@ -1,7 +1,13 @@
+# -*- coding: UTF-8 -*-
+'''
+@Author: sanjayzhong
+@Github: https://github.com/sanjayzzzhong
+@Date: 2019-05-13
+'''
 import os
 
-img_path = "/home/sanjay/Documents/Tencent Files/1009610720/FileRecv/muck/img/"
-xml_path = "/home/sanjay/Documents/Tencent Files/1009610720/FileRecv/muck/xml/"
+xml_path = "/home/sanjay/DATA/Project_Datasets/Tibet_Project/Knife/KnifeDetect-val290-20190516T020647Z-001/KnifeDetect-val290/xml/"
+img_path = "/home/sanjay/DATA/Project_Datasets/Tibet_Project/Knife/KnifeDetect-val290-20190516T020647Z-001/KnifeDetect-val290/images/"
 
 for xml_file in os.listdir(xml_path):
     xml_name = os.path.splitext(xml_file)[0]

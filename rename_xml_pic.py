@@ -1,3 +1,9 @@
+# -*- coding: UTF-8 -*-
+'''
+@Author: sanjayzhong
+@Github: https://github.com/sanjayzzzhong
+@Date: 2019-05-13
+'''
 #coding:utf-8
 from PIL import Image
 import os.path
@@ -5,9 +11,9 @@ import glob
 import xml.etree.ElementTree as ET
 import xml.dom.minidom
  
-i = 5979
-xmldir = "/home/sanjay/DATA/Project_Datasets/manhole1/xml/"
-imgsdir = "/home/sanjay/DATA/Project_Datasets/manhole1/img/"
+i = 8173
+xmldir = "/home/sanjay/DATA/Project_Datasets/Tibet_Project/Knife/xml/"
+imgsdir = "/home/sanjay/DATA/Project_Datasets/Tibet_Project/Knife/train/"
 #outdir = "/home/sanjay/Pictures/manhole_1/new"
 for xmlfile in os.listdir(xmldir):
     xmlname = os.path.splitext(xmlfile)[0]
@@ -20,7 +26,7 @@ for xmlfile in os.listdir(xmldir):
              # 图片文件名修改前后的路径
              olddir = os.path.join(os.path.abspath(imgsdir), pngname + ".jpg")
              #print(olddir)
-             newdir = os.path.join(os.path.abspath(imgsdir), str(i)+".jpg")
+             newdir = os.path.join(os.path.abspath(imgsdir), 'knife_'+ str(i) + ".jpg")
              os.rename(olddir, newdir)
              print(xmlfile, '----->', str(i) + '.jpg')
              # 修改filename结点属性
@@ -29,12 +35,12 @@ for xmlfile in os.listdir(xmldir):
              root = dom.documentElement
  
              # 获取标签对filename之间的值并赋予新值i
-             root.getElementsByTagName('filename')[0].firstChild.data = str(i) + '.jpg'
+             root.getElementsByTagName('filename')[0].firstChild.data = 'knife_' + str(i) + '.jpg'
  
              # 将修改后的xml文件保存
              # xml文件修改前后的路径
              old_xmldir = os.path.join(xmldir, xmlfile)
-             new_xmldir = os.path.join(xmldir, str(i)+'.xml')
+             new_xmldir = os.path.join(xmldir, 'knife_' + str(i)+'.xml')
              # 打开并写入
              with open(old_xmldir, 'w') as fh:
                  dom.writexml(fh)

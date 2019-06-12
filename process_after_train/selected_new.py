@@ -17,6 +17,37 @@ from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
 
 
+##################################定义鼠标的回调函数##########################
+start, end = (0, 0), (0, 0)
+drawing = False
+# roi = np.zeros((500, 500,3), dtype=np.uint8)
+last_start, last_end = (0, 0), (0, 0)
+
+# 定义回调函数
+def mouse_event(event, x, y, flags, param):
+    global start, end, drawing, tmp, roi # 为什么tmp也要使用全局呢，因为tmp是copy来的，要在tmp上获取x，y并且画图
+    
+    # 鼠标按下，开始画图：记录下起点
+    if event == cv2.EVENT_LBUTTONDOWN:
+        drawing = True
+        start = (x, y)
+    # 实时移动的位置作为矩形的终点
+    elif event == cv2.EVENT_MOUSEMOVE:
+        if drawing:
+            end = (x, y)
+    # 鼠标停止后，停止绘图
+    elif event == cv2.EVENT_LBUTTONUP:
+        drawing = False 
+        cv2.rectangle(img, start, (x, y), (0, 0, 255), 10) 
+        # 要加下面这句
+        # roi = tmp[start[1]:y, start[0]:x]
+        last_end = (x, y)
+
+        start = end = (0,0)
+
+###############################################################################
+
+
 
 # 加载封装好的模型
 MODEL_NAME = 'meter_inference_graph'
@@ -70,6 +101,16 @@ with detection_graph.as_default():
         detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
         num_detections = detection_graph.get_tensor_by_name('num_detections:0')
         for i, imagePath in enumerate(selected_imagePath_list):
+            # 读入图片
+            img = cv2.imread(imagePath)
+            cv2.namedWindow('image', flags=cv2.WINDOW_NORMAL | cv2.WINDOW_FREERATIO)
+            cv2.setMouseCallback('image', mouse_event)
+            while(True):
+                tmp = np.copy(img)
+                if(drawing and end != (0,0)):
+                    cv2.rectangle(tmp, start, end, (0, 0, 255), 10)
+                cv2.imshow('image', tmp)
+                # 这个时候
             image = Image.open(imagePath)
             # the array based representation of the image will be used later in order to prepare the
             # result image with boxes and labels on it.
