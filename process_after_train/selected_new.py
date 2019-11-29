@@ -21,11 +21,11 @@ from object_detection.utils import visualization_utils as vis_util
 start, end = (0, 0), (0, 0)
 drawing = False
 # roi = np.zeros((500, 500,3), dtype=np.uint8)
-last_start, last_end = (0, 0), (0, 0)
+last_end = (0, 0)
 
 # 定义回调函数
 def mouse_event(event, x, y, flags, param):
-    global start, end, drawing, tmp, roi # 为什么tmp也要使用全局呢，因为tmp是copy来的，要在tmp上获取x，y并且画图
+    global start, end, drawing, tmp, last_end # 为什么tmp也要使用全局呢，因为tmp是copy来的，要在tmp上获取x，y并且画图
     
     # 鼠标按下，开始画图：记录下起点
     if event == cv2.EVENT_LBUTTONDOWN:
@@ -110,12 +110,21 @@ with detection_graph.as_default():
                 if(drawing and end != (0,0)):
                     cv2.rectangle(tmp, start, end, (0, 0, 255), 10)
                 cv2.imshow('image', tmp)
-                # 这个时候
-            image = Image.open(imagePath)
+                if last_end is not (0,0):
+                    top_left = start
+                    bottom_right = last_end
+                    last_end = (0, 0)
+                    break
+            # 把cv读取的img转为image.open读取的格式
+            img = Image.fromarray(cv2.cvtColor(img,cv2.COLOR_BGR2RGB)) 
+            roi = img[top_left[1]:bottom_right[1], top_left[0]:bottom_right[0]]
+
+            # image = Image.open(imagePath)
             # the array based representation of the image will be used later in order to prepare the
             # result image with boxes and labels on it.
             try:
-                image_np = load_image_into_numpy_array(image)
+                # 把roi丢进去训练
+                image_np = load_image_into_numpy_array(roi)
             except:
                 continue
             # Expand dimensions since the model expects images to have shape: [1, None, None, 3]

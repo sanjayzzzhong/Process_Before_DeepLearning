@@ -1,9 +1,3 @@
-# -*- coding: UTF-8 -*-
-'''
-@Author: sanjayzhong
-@Github: https://github.com/sanjayzzzhong
-@Date: 2019-05-12
-'''
 
 # 导入代码库
 import numpy as np
