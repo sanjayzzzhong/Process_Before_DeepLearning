@@ -9,8 +9,8 @@ import cv2
 import sys
 from PIL import Image
 
-path = "/home/sanjay/DATA/ChromeDownload/ak/img/"
-new_path = "/home/sanjay/DATA/ChromeDownload/ak/new_img/"
+path = "/home/sanjay/DATA/Project_Datasets/2_Tibet_Project/1_Gun/gun_classify/img/"
+new_path = "/home/sanjay/DATA/Project_Datasets/2_Tibet_Project/1_Gun/gun_classify/new_img/"
 i = 1
 for filename in os.listdir(path):
     if os.path.splitext(filename)[1] == ".jpg" or os.path.splitext(filename)[1] == ".png" or os.path.splitext(filename)[1] == ".JPEG" or os.path.splitext(filename)[1] == ".JPG" or os.path.splitext(filename)[1] == ".jpeg":

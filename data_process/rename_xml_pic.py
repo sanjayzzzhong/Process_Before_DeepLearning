@@ -11,9 +11,9 @@ import glob
 import xml.etree.ElementTree as ET
 import xml.dom.minidom
 
-i = 141
-xmldir = "/home/sanjay/DATA/ChromeDownload/ak/xml/"
-imgsdir = "/home/sanjay/DATA/ChromeDownload/ak/img/"
+i = 2510
+xmldir = "/home/sanjay/DATA/Project_Datasets/2_Tibet_Project/1_Gun/gun_classify/xml/"
+imgsdir = "/home/sanjay/DATA/Project_Datasets/2_Tibet_Project/1_Gun/gun_classify/new_img/"
 #outdir = "/home/sanjay/Pictures/manhole_1/new"
 for xmlfile in os.listdir(xmldir):
     xmlname = os.path.splitext(xmlfile)[0]
