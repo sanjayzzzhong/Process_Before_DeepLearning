@@ -10,11 +10,11 @@ import os.path
 import xml.dom.minidom
 
 #获得文件夹中所有文件
-FindPath = '/home/sanjay/DATA/Project_Datasets/2_Tibet_Project/1_Gun/gun_classify/pistol/xml/'
+FindPath = '/home/sanjay/Documents/Tencent Files/1009610720/FileRecv/ak_pic/xml1/'
 FileNames = os.listdir(FindPath)
 s = []
 # new xml path to save
-xml_path = '/home/sanjay/DATA/Project_Datasets/2_Tibet_Project/1_Gun/gun_classify/pistol/xml_new/'
+xml_path = '/home/sanjay/Documents/Tencent Files/1009610720/FileRecv/ak_pic/new_xml/'
 # iterate all file just with file_name without path, just filename, such as '0.xml'
 for file_name in FileNames:
     if not os.path.isdir(file_name):  # 判断是否是文件夹,不是文件夹才打开
@@ -31,8 +31,8 @@ for file_name in FileNames:
     name = root.getElementsByTagName('name')
     for i in range(len(name)):
         print(name[i].firstChild.data)
-        if name[i] .firstChild.data== 'gun':
-            name[i].firstChild.data = 'pistol'
+        if name[i] .firstChild.data== 'AK47':
+            name[i].firstChild.data = 'ak47'
             print('修改后的 name')
             print(name[i].firstChild.data)
         # elif name[i].firstChild.data == '1d':
