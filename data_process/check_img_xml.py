@@ -6,8 +6,8 @@
 '''
 import os
 
-xml_path = "/home/sanjay/DATA/Project_Datasets/2_Tibet_Project/1_Gun/gun_classify/pistol/xml/"
-img_path = "/home/sanjay/DATA/Project_Datasets/2_Tibet_Project/1_Gun/gun_classify/pistol/img/"
+xml_path = "/Users/sanjay/Downloads/videos/new/xml/"
+img_path = "/Users/sanjay/Downloads/videos/new/img/"
 
 for xml_file in os.listdir(xml_path):
     xml_name = os.path.splitext(xml_file)[0]
