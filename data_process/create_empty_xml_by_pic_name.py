@@ -1,7 +1,7 @@
 import os
 import xml.dom.minidom
 
-read_file = '/Users/sanjay/Downloads/test_data/all/'
+read_file = '/Users/sanjay/Downloads/axe/all/'
 
 for file_name in os.listdir(read_file):
     new_txtname = file_name.split('.')[0]
@@ -58,6 +58,6 @@ for file_name in os.listdir(read_file):
     annotation.appendChild(segmented)
 
     # 写入xml文本文件中
-    fp = open('/Users/sanjay/Downloads/test_data/xml/%s.xml' % new_txtname, 'w+')
+    fp = open('/Users/sanjay/Downloads/axe/xml/%s.xml' % new_txtname, 'w+')
     doc.writexml(fp, indent='\t', addindent='\t', newl='\n', encoding='utf-8')
     fp.close()

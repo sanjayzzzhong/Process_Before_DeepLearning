@@ -1,8 +1,6 @@
 import PIL.Image as Image
 # import pylab
 import imageio
-# 注释的代码执行一次就好，以后都会默认下载完成
-# imageio.plugins.ffmpeg.download()  #第一次运行是删除注释，下载ffmpeg工具
 import skimage
 # import numpy as np
 import os
@@ -43,8 +41,8 @@ def move_all_files_to_another_folder(src_folder, dest_folder):
               shutil.copy(file_path,newpath)
 
 if __name__ == "__main__":
-  src_path = "/Users/sanjay/Downloads/test_data/neg/"
-  target_path = "/Users/sanjay/Downloads/test_data/frame1/"
-  final_path = "/Users/sanjay/Downloads/test_data/all"
-  # extract_frames(src_path, target_path)
+  src_path = "/Users/sanjay/Downloads/axe/neg/"
+  target_path = "/Users/sanjay/Downloads/axe/frame1/"
+  final_path = "/Users/sanjay/Downloads/axe/all"
+  extract_frames(src_path, target_path)
   move_all_files_to_another_folder(target_path, final_path)

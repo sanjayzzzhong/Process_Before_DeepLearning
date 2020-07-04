@@ -6,8 +6,8 @@
 '''
 import os
 
-xml_path = "/Users/sanjay/Downloads/videos/new/xml/"
-img_path = "/Users/sanjay/Downloads/videos/new/img/"
+xml_path = "/jimmy/darknet/scripts_5/axe/Annotations/"
+img_path = "/jimmy/darknet/scripts_5/axe/JPEGImages/"
 
 for xml_file in os.listdir(xml_path):
     xml_name = os.path.splitext(xml_file)[0]
@@ -19,7 +19,7 @@ for xml_file in os.listdir(xml_path):
             break
     if flag == False:
         print(xml_name)
-        os.remove(os.path.join(xml_path, xml_file))
+        # os.remove(os.path.join(xml_path, xml_file))
         print("Deleted " + xml_file )
     flag = False
 
@@ -38,7 +38,7 @@ for xml_file in os.listdir(xml_path):
             break
     if flag == False:
         print(xml_name)
-        os.remove(os.path.join(xml_path, xml_file))
+        # os.remove(os.path.join(xml_path, xml_file))
         print("Deleted " + xml_file)
     flag = False
     
